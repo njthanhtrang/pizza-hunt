@@ -3,7 +3,7 @@ const router = require("express").Router();
 // instead of importing entire obj and doing pizzaController.getAllPizza()
 // destructure method names out of imported obj, use names directly
 const {
-    getAllPizza,
+    getAllPizzas,
     getPizzaById,
     createPizza,
     updatePizza,
@@ -13,7 +13,7 @@ const {
 // Combine routes for individual HTTP methods
 // set up GET all and POST at /api/pizzas
 // provide contorller method as callback
-router.route("/").get(getAllPizza).post(createPizza);
+router.route("/").get(getAllPizzas).post(createPizza);
 
 // set up GET one, PUT, DELETE at /api/pizzas/:id
 router.route("/:id").get(getPizzaById).put(updatePizza).delete(deletePizza);
