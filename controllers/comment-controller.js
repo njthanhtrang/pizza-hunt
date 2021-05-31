@@ -32,7 +32,7 @@ const commentController = {
     // $push allows duplicates
     // use $addToSet update operator to block dupes
       { $push: { replies: body } },
-      { new: true }
+      { new: true, runValidators: true }
     )
       .then((dbPizzaData) => {
         if (!dbPizzaData) {

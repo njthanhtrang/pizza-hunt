@@ -5,9 +5,14 @@ const PizzaSchema = new Schema(
   {
     pizzaName: {
       type: String,
+    //   required: true,
+    required: "You need to provide a custom pizza name!",
+      trim: true
     },
     createdBy: {
       type: String,
+      required: true,
+      trim: true
     },
     createdAt: {
       type: Date,
@@ -17,6 +22,9 @@ const PizzaSchema = new Schema(
     },
     size: {
       type: String,
+      required: true,
+    //   set of data that can be iterated over (like for...in for obj)
+      enum: ["Personal", "Small", "Medium", "Large", "Extra Large"],
       default: "Large",
     },
     // array as data type, can also specify Array

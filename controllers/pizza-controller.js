@@ -67,7 +67,7 @@ const pizzaController = {
     // Mongoose and MongoDB methods .updateOne() and .updateMany() update doc w/o returning
     // findByIdAndUpdate()
     // findOneAndUpdate() 3 params, WHERE, WHAT DATA, OPTION TO RETURN NEW OR NAH
-    Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true })
+    Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
       .then((dbPizzaData) => {
         if (!dbPizzaData) {
           res.status(404).json({ message: "No pizza found with this id!" });
