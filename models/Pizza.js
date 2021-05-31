@@ -30,6 +30,8 @@ const PizzaSchema = new Schema(
   },
   {
     toJSON: {
+        // access a field that doesn't actually exist in DB
+        // extends models by creating virtual field, evaluated when documents are retrieved from DB
       virtuals: true,
     //   tell Mongoose model it should use any getter fx specified
       getters: true,
@@ -42,7 +44,11 @@ const PizzaSchema = new Schema(
 //   Virtuals add info to DB response so we don't have to add info manually with helper before responding to API req
 // get total count of comments and replies on retrieval
 PizzaSchema.virtual("commentCount").get(function () {
-  return this.comments.length;
+    // tally up total of every comment with replies
+    // accumulator, currentValue => total, amount
+    // pass accumulating total and current value of comment into fx
+    // fx returns with revised total for next iteration through array
+  return this.comments.reduce((total, comment) => total + comment.replies.length + 1, 0);
 });
 
 //   create Pizza model using PizzaSchema
