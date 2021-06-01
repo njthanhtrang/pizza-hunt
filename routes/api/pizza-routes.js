@@ -11,7 +11,7 @@ const {
 } = require("../../controllers/pizza-controller");
 
 // Combine routes for individual HTTP methods
-// set up GET all and POST at /api/pizzas
+// GET all and POST at /api/pizzas
 // provide contorller method as callback
 router.route("/").get(getAllPizzas).post(createPizza);
 

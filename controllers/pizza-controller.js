@@ -22,6 +22,7 @@ const pizzaController = {
       .catch((err) => {
         console.log(err);
         res.status(400).json(err);
+        // or res.sendStatus(400);
       });
   },
 

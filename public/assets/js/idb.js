@@ -14,12 +14,12 @@ request.onupgradeneeded = function (event) {
 };
 
 // upon successful connection to DB
-request.onsuccess = function (event) {
+request.onsuccess = function(event) {
   // when db is successfully created with obj store, save ref to db in global var
   db = event.target.result;
 
   // check if app is online, if yes run uploadPizza() to send all local db data to api
-  if (navigator.online) {
+  if (navigator.onLine) {
     //   check if we're online every time app opens and upload remnant pizza data
     uploadPizza();
   }

@@ -7,6 +7,7 @@ const PizzaSchema = new Schema(
       type: String,
     //   required: true,
     required: "You need to provide a custom pizza name!",
+    // can use validator option
       trim: true
     },
     createdBy: {

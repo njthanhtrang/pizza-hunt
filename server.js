@@ -8,8 +8,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-app.use(require('./routes'));
-
 // if MONGODB_URI exists, connect to that DB
 // otherwise short-circuit to local MongoDB server's DB
 // MongoDB finds and connects to DB if exists or creates if it doesn't
@@ -22,4 +20,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pizza-hunt", {
 // log mongo queries being executed
 mongoose.set("debug", true);
 
+app.use(require('./routes'));
+
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
+
+// heroku open
+// https://evening-scrubland-24016.herokuapp.com/

@@ -17,6 +17,7 @@ function getPizza() {
   // get pizzaInfo
   fetch(`/api/pizzas/${pizzaId}`)
   .then(response => {
+    console.log(response);
     // check for a 40X or 50X error from server
     if (!response.ok) {
       throw new Error({ message: "Something went wrong!" });
